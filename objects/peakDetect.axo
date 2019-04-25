@@ -1,0 +1,50 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="peakDetect" uuid="0000000000000000000000000000000000000002">
+      <sDescription>Detects Peak with decayrate tau.</sDescription>
+      <author>Gerald Ebmer</author>
+      <license>BSD</license>
+      <inlets>
+         <frac32buffer name="in" description="audio input"/>
+      </inlets>
+      <outlets>
+         <frac32buffer.bipolar name="out" description="audio output"/>
+      </outlets>
+      <displays/>
+      <params>
+         <frac32.u.map name="tau" description="decayrate" noLabel="true">
+            <DefaultValue v="1.0"/>
+            <MinValue v="0.01"/>
+            <MaxValue v="0.5"/>
+         </frac32.u.map>
+      </params>
+      <attribs/>
+      <includes>
+         <include>math.h</include>
+      </includes>
+      <code.declaration><![CDATA[#define FToQ27 float_to_q27
+#define Q27ToF q27_to_float
+float out;]]></code.declaration>
+      <code.init><![CDATA[//decay = powf(2.7182818f,-(1.0f/(float)SAMPLERATE));
+      out = 0.0f;]]></code.init>
+      <code.krate><![CDATA[float T = (1.0f/(float)SAMPLERATE);
+float tau = Q27ToF(param_tau)/10.0f;
+float eul = 2.7182818f;
+float decay = powf(eul, -T/tau);
+
+int j;
+
+for(j=0;j<BUFSIZE;j++){
+	float in = Q27ToF(inlet_in[j]);
+	
+	if(fabs(in) > fabs(out))
+	{
+	     out = fabs(in);
+	}
+	else{
+		out = out * decay;
+	}
+	
+	outlet_out[j] = FToQ27(out);
+}]]></code.krate>
+   </obj.normal>
+</objdefs>
