@@ -1,0 +1,32 @@
+<objdefs>
+   <obj.normal id="custom1" uuid="0000000000000000000000000000000000000001" sha="6b39a639d9494e8a3b7df288df646ef1d5b17298">
+      <upgradeSha>6a81663bcc6a29c922883f499193baff3d14c5d</upgradeSha>
+      <sDescription>custom object 1</sDescription>
+      <author>Gerald Ebmer</author>
+      <license>BSD</license>
+      <inlets>
+         <frac32buffer name="in" description="audio input"/>
+      </inlets>
+      <outlets>
+         <frac32buffer.bipolar name="out" description="audio output"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs/>
+      <includes>
+         <!--<include>./bltable.h</include> -->
+      </includes>
+      <code.declaration><![CDATA[  
+
+]]></code.declaration>
+      <code.init><![CDATA[    
+
+]]></code.init>
+      <code.krate><![CDATA[  
+      int j;
+      for(j=0;j<BUFSIZE;j++){
+         outlet_out[j]=inlet_in[j];
+      }
+]]></code.krate>
+   </obj.normal>
+</objdefs>
