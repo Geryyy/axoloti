@@ -1,0 +1,62 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="trigger" uuid="0000000000000000000000000000000000000004">
+      <sDescription>Trigger</sDescription>
+      <author>Gerald Ebmer</author>
+      <license>BSD</license>
+      <inlets>
+         <frac32buffer name="in" description="signal input"/>
+      </inlets>
+      <outlets>
+         <bool32 name="out" description="trigger output"/>
+      </outlets>
+      <displays/>
+      <params>
+         <frac32.u.map name="thresh" description="trigger theshold" noLabel="false">
+            <DefaultValue v="0.5"/>
+            <MinValue v="0.0"/>
+            <MaxValue v="1.34217728E8"/>
+         </frac32.u.map>
+         <frac32.u.map name="holdOff" description="suppress adjacent trigger events for spec holdtime" noLabel="false">
+            <DefaultValue v="0.1"/>
+            <MinValue v="1342177.0"/>
+            <MaxValue v="1.34217728E9"/>
+         </frac32.u.map>
+      </params>
+      <attribs/>
+      <includes>
+         <include>math.h</include>
+      </includes>
+      <code.declaration><![CDATA[#define FToQ27 float_to_q27
+#define Q27ToF q27_to_float
+bool out;
+float t_hold;
+float T;
+float thresh;
+float holdT;]]></code.declaration>
+      <code.init><![CDATA[out = 0.0f;
+ t_hold = 0.0f;
+ T = (1.0f/(float)SAMPLERATE);]]></code.init>
+      <code.krate><![CDATA[thresh = Q27ToF(param_thresh);
+holdT = Q27ToF(param_holdOff);]]></code.krate>
+      <code.srate><![CDATA[float input = Q27ToF(inlet_in);
+
+if(t_hold <= 0.0)
+   {
+       if(fabsf(input) > thresh)
+       {
+           t_hold = holdT;
+           out = true;
+       }
+       else
+       {
+           out = false;
+       }
+   }
+   else
+   {
+       t_hold = t_hold - T;
+       out = false;
+   }
+outlet_out = out;]]></code.srate>
+   </obj.normal>
+</objdefs>

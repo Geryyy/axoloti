@@ -1,41 +1,46 @@
 <patch-1.0 appVersion="1.0.12">
+   <obj type="gpio/in/button1" uuid="2f4fbacf3969a3a1ff9d23899566430051cb01f" name="button1_1" x="588" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="994" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b" uuid="597fcaac36aa638ba120b0fbdcadcde4ad405a7e" name="refsig" x="1218" y="70">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="512"/>
+         <text attributeName="init">
+            <sText><![CDATA[array[0]=32767;]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="wave/play" uuid="2e6265136dbaaf4d885a669520546de2e3306819" name="play_1" x="812" y="98">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="audio/in left" uuid="d40e60b7641fe75af4d7c91b45bb038aacafc52e" name="in_1" x="210" y="126">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/button1" uuid="2f4fbacf3969a3a1ff9d23899566430051cb01f" name="button1_1" x="518" y="238">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="924" y="238">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="wave/play" uuid="2e6265136dbaaf4d885a669520546de2e3306819" name="play_1" x="742" y="266">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="462" y="294">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="532" y="126">
       <params/>
       <attribs>
          <table attributeName="str" table="sample3.wav"/>
       </attribs>
    </obj>
-   <obj type="audio/in right" uuid="5f35c9f87b3f291a8120a10db71935bebd186469" name="in_2" x="210" y="420">
+   <obj type="audio/in right" uuid="5f35c9f87b3f291a8120a10db71935bebd186469" name="in_2" x="210" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="476" y="490">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="434" y="266">
       <params>
-         <frac32.s.map name="pitch" value="-42.0"/>
+         <frac32.s.map name="pitch" value="-54.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/kscope 128 p trig" uuid="b1422e51800273c4e8afe943ddfa1441ecb7a77b" name="kscope_1" x="938" y="504">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="peakDetect" uuid="0000000000000000000000000000000000000002" name="peakDetect_1" x="714" y="532">
+   <obj type="peakDetect" uuid="0000000000000000000000000000000000000002" name="peakDetect_1" x="616" y="266">
       <params>
          <frac32.u.map name="tau" value="11.0">
             <presets/>
@@ -43,7 +48,53 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="gpio/out/analog" uuid="3dbaacfe87bc5c0e92392273b4e45350d1ffd708" name="analog_1" x="812" y="700">
+   <obj type="disp/kscope 128 p trig" uuid="b1422e51800273c4e8afe943ddfa1441ecb7a77b" name="kscope_1" x="854" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/square medium" uuid="d8675e626c34278d4df80ca15ee965d647908d2f" name="square_1" x="168" y="420">
+      <params>
+         <frac32.s.map name="pitch" value="-59.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="xcorr" uuid="0000000000000000000000000000000000000003" name="xcorr_1" x="490" y="434">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="refsig"/>
+         <combo attributeName="attenuation" selection="12dB"/>
+         <spinner attributeName="length" value="512"/>
+      </attribs>
+   </obj>
+   <obj type="gpio/out/analog" uuid="3dbaacfe87bc5c0e92392273b4e45350d1ffd708" name="analog_1" x="686" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="trigger" uuid="0000000000000000000000000000000000000004" name="trigger_1" x="350" y="532">
+      <params>
+         <frac32.u.map name="thresh" value="64.0"/>
+         <frac32.u.map name="holdOff" value="5.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/kscope 128 p trig" uuid="b1422e51800273c4e8afe943ddfa1441ecb7a77b" name="kscope_2" x="700" y="532">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/record" uuid="2f8909f3691be093f0b8cf6532d4acff2dcb1a9f" name="record_1" x="490" y="546">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="refsig"/>
+      </attribs>
+   </obj>
+   <comment type="patch/comment" x="196" y="658" text="record signal"/>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="196" y="686">
+      <params>
+         <bool32.mom name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gpio/out/led1" uuid="c6679540460d64e2e71760e61cb82fac227e2764" name="led1_1" x="490" y="686">
       <params/>
       <attribs/>
    </obj>
@@ -65,6 +116,22 @@
       <net>
          <source obj="peakDetect_1" outlet="out"/>
          <dest obj="kscope_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="square_1" outlet="wave"/>
+         <dest obj="trigger_1" inlet="in"/>
+         <dest obj="record_1" inlet="wave"/>
+         <dest obj="xcorr_1" inlet="in"/>
+         <dest obj="analog_1" inlet="PA5"/>
+         <dest obj="kscope_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="trigger_1" outlet="out"/>
+         <dest obj="record_1" inlet="start"/>
+         <dest obj="led1_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="xcorr_1" outlet="out"/>
          <dest obj="analog_1" inlet="PA4"/>
       </net>
    </nets>
