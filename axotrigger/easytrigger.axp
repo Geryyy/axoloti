@@ -1,13 +1,23 @@
 <patch-1.0 appVersion="1.0.12">
    <comment type="patch/comment" x="210" y="98" text="Snare IN"/>
-   <obj type="audio/in left" uuid="d40e60b7641fe75af4d7c91b45bb038aacafc52e" name="in_1" x="210" y="126">
+   <obj type="logic/flipflop" uuid="f9b15363f5ee203152e062c08a8846f0074b0ea5" name="flipflop_3" x="840" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="wave/play fn" uuid="25910f7130532e4934eed3cf2a934324790d0f00" name="play_2" x="966" y="126">
+      <params/>
+      <attribs>
+         <file attributeName="fn" file="sample3.raw"/>
+      </attribs>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1218" y="126">
       <params/>
       <attribs/>
    </obj>
    <obj type="mix/mix 2" uuid="30c04239c88e09d3fa5c333b784ecf54f1b0e268" name="mix_1" x="1330" y="126">
       <params>
-         <frac32.u.map name="gain1" value="32.0"/>
-         <frac32.u.map name="gain2" value="32.0"/>
+         <frac32.u.map name="gain1" value="27.0"/>
+         <frac32.u.map name="gain2" value="46.5"/>
       </params>
       <attribs/>
    </obj>
@@ -15,140 +25,284 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="filter/bp" uuid="b83f82f9efb70107bea8d668a1652b1acfbde8b0" name="bp_1" x="378" y="252">
+   <obj type="audio/in left" uuid="d40e60b7641fe75af4d7c91b45bb038aacafc52e" name="in_1" x="42" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/gain" uuid="62b1c1a6337c7c8f6aec96408a432477b113cfa0" name="gain_1" x="140" y="140">
       <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="reso" value="0.0"/>
+         <frac32.u.map name="amp" value="17.5"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="xcorr" uuid="0000000000000000000000000000000000000003" name="xcorr_1" x="546" y="252">
+   <obj type="xcorr" uuid="0000000000000000000000000000000000000003" name="xcorr_1" x="280" y="140">
       <params/>
       <attribs>
          <objref attributeName="table" obj="refsig"/>
-         <combo attributeName="attenuation" selection="12dB"/>
-         <spinner attributeName="length" value="512"/>
+         <combo attributeName="attenuation" selection="18dB"/>
+         <spinner attributeName="length" value="256"/>
       </attribs>
    </obj>
-   <obj type="trigger" uuid="0000000000000000000000000000000000000004" name="trigger_1" x="728" y="252">
+   <obj type="filter/bp" uuid="b83f82f9efb70107bea8d668a1652b1acfbde8b0" name="bp_1" x="462" y="140">
       <params>
-         <frac32.u.map name="thresh" value="64.0"/>
-         <frac32.u.map name="holdOff" value="5.5"/>
+         <frac32.s.map name="pitch" value="-11.0"/>
+         <frac32.u.map name="reso" value="49.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="wave/play" uuid="2e6265136dbaaf4d885a669520546de2e3306819" name="play_1" x="910" y="252">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1134" y="266">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="audio/in right" uuid="5f35c9f87b3f291a8120a10db71935bebd186469" name="in_2" x="126" y="294">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="910" y="350" text="sample triggered"/>
-   <obj type="gpio/out/led2" uuid="3d7a4c75d1f9901181a17ba5de752782de911803" name="led2_1" x="910" y="378">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="peakDetect" uuid="0000000000000000000000000000000000000002" name="peakDetect_1" x="378" y="392">
+   <obj type="trigger" uuid="0000000000000000000000000000000000000004" name="trigger_1" x="588" y="140">
       <params>
-         <frac32.u.map name="tau" value="11.0">
+         <frac32.u.map name="thresh" value="37.5"/>
+         <frac32.u.map name="holdOff" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="timer/delayedpulse" uuid="3f05ee534ca67755fb20c7437f9e4de3d4c2f73d" name="delayedpulse_2" x="700" y="182">
+      <params>
+         <frac32.s.map name="delay" value="-28.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="1190" y="252" text="sample envelope curve"/>
+   <obj type="env/ahd" uuid="2139369d6de2ba5ddf76e602d1d25df653ca9eed" name="ahd_1" x="1190" y="280">
+      <params>
+         <frac32.s.map name="a" value="-20.0"/>
+         <frac32.s.map name="d" value="38.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="peakDetect" uuid="0000000000000000000000000000000000000002" name="peakDetect_1" x="322" y="294">
+      <params>
+         <frac32.u.map name="tau" value="42.0">
             <presets/>
          </frac32.u.map>
       </params>
       <attribs/>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="728" y="392">
-      <params/>
-      <attribs>
-         <table attributeName="str" table="sample3.wav"/>
-      </attribs>
-   </obj>
-   <obj type="logic/latch" uuid="14750683752bd43205826430adb7168dae3cc2c" name="latch_1" x="910" y="490">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="trigger" uuid="0000000000000000000000000000000000000004" name="trigger_2" x="378" y="532">
+   <obj type="math/gain" uuid="62b1c1a6337c7c8f6aec96408a432477b113cfa0" name="gain_2" x="406" y="294">
       <params>
-         <frac32.u.map name="thresh" value="64.0"/>
-         <frac32.u.map name="holdOff" value="5.5"/>
+         <frac32.u.map name="amp" value="46.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="table/record" uuid="2f8909f3691be093f0b8cf6532d4acff2dcb1a9f" name="record_1" x="798" y="602">
+   <comment type="patch/comment" x="896" y="308" text="sample triggered"/>
+   <obj type="timer/delayedpulse" uuid="3f05ee534ca67755fb20c7437f9e4de3d4c2f73d" name="delayedpulse_1" x="896" y="336">
+      <params>
+         <frac32.s.map name="delay" value="14.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/flipflop" uuid="f9b15363f5ee203152e062c08a8846f0074b0ea5" name="flipflop_2" x="1050" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/kscope 128 b trig" uuid="b24afecdaf757006c3a4bb578f0aea1d7441153e" name="kscope_2" x="574" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="1148" y="532" text="record active"/>
+   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_1" x="1134" y="560">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/out/led1" uuid="c6679540460d64e2e71760e61cb82fac227e2764" name="led1_1" x="1246" y="560">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="266" y="574" text="teach reference"/>
+   <obj type="trigger" uuid="0000000000000000000000000000000000000004" name="trigger_2" x="266" y="602">
+      <params>
+         <frac32.u.map name="thresh" value="11.5"/>
+         <frac32.u.map name="holdOff" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/record" uuid="2f8909f3691be093f0b8cf6532d4acff2dcb1a9f" name="record_1" x="686" y="672">
       <params/>
       <attribs>
          <objref attributeName="table" obj="refsig"/>
       </attribs>
    </obj>
-   <obj type="table/alloc 16b" uuid="597fcaac36aa638ba120b0fbdcadcde4ad405a7e" name="refsig" x="966" y="602">
+   <obj type="table/alloc 16b" uuid="597fcaac36aa638ba120b0fbdcadcde4ad405a7e" name="refsig" x="854" y="672">
       <params/>
       <attribs>
-         <combo attributeName="size" selection="512"/>
+         <combo attributeName="size" selection="256"/>
          <text attributeName="init">
             <sText><![CDATA[array[0]=32767;]]></sText>
          </text>
       </attribs>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="658" y="658">
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="546" y="728">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/flipflop" uuid="f9b15363f5ee203152e062c08a8846f0074b0ea5" name="flipflop_1" x="532" y="672">
+   <obj type="logic/flipflop" uuid="f9b15363f5ee203152e062c08a8846f0074b0ea5" name="flipflop_1" x="420" y="742">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/button1" uuid="2f4fbacf3969a3a1ff9d23899566430051cb01f" name="button1_1" x="378" y="686">
+   <obj type="gpio/in/button1" uuid="2f4fbacf3969a3a1ff9d23899566430051cb01f" name="button1_1" x="266" y="756">
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="658" y="742" text="record active"/>
-   <obj type="gpio/out/led1" uuid="c6679540460d64e2e71760e61cb82fac227e2764" name="led1_1" x="658" y="770">
+   <comment type="patch/comment" x="252" y="966" text="Kick IN"/>
+   <obj type="logic/flipflop" uuid="f9b15363f5ee203152e062c08a8846f0074b0ea5" name="flipflop_4" x="882" y="994">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="wave/play fn" uuid="25910f7130532e4934eed3cf2a934324790d0f00" name="play_3" x="1008" y="994">
+      <params/>
+      <attribs>
+         <file attributeName="fn" file="kick.raw"/>
+      </attribs>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1260" y="994">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2" uuid="30c04239c88e09d3fa5c333b784ecf54f1b0e268" name="mix_2" x="1372" y="994">
+      <params>
+         <frac32.u.map name="gain1" value="21.0"/>
+         <frac32.u.map name="gain2" value="41.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/in right" uuid="5f35c9f87b3f291a8120a10db71935bebd186469" name="in_2" x="70" y="1008">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/gain" uuid="62b1c1a6337c7c8f6aec96408a432477b113cfa0" name="gain_3" x="252" y="1008">
+      <params>
+         <frac32.u.map name="amp" value="21.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="xcorr" uuid="0000000000000000000000000000000000000003" name="xcorr_2" x="392" y="1008">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="refkick"/>
+         <combo attributeName="attenuation" selection="18dB"/>
+         <spinner attributeName="length" value="256"/>
+      </attribs>
+   </obj>
+   <obj type="filter/bp" uuid="b83f82f9efb70107bea8d668a1652b1acfbde8b0" name="bp_2" x="574" y="1008">
+      <params>
+         <frac32.s.map name="pitch" value="-11.0"/>
+         <frac32.u.map name="reso" value="49.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="trigger" uuid="0000000000000000000000000000000000000004" name="trigger_3" x="700" y="1008">
+      <params>
+         <frac32.u.map name="thresh" value="33.0"/>
+         <frac32.u.map name="holdOff" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="timer/delayedpulse" uuid="3f05ee534ca67755fb20c7437f9e4de3d4c2f73d" name="delayedpulse_3" x="812" y="1050">
+      <params>
+         <frac32.s.map name="delay" value="-28.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="1302" y="1120" text="sample envelope curve"/>
+   <obj type="env/ahd" uuid="2139369d6de2ba5ddf76e602d1d25df653ca9eed" name="ahd_2" x="1302" y="1148">
+      <params>
+         <frac32.s.map name="a" value="-20.0"/>
+         <frac32.s.map name="d" value="38.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="peakDetect" uuid="0000000000000000000000000000000000000002" name="peakDetect_2" x="434" y="1162">
+      <params>
+         <frac32.u.map name="tau" value="42.0">
+            <presets/>
+         </frac32.u.map>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/gain" uuid="62b1c1a6337c7c8f6aec96408a432477b113cfa0" name="gain_4" x="518" y="1162">
+      <params>
+         <frac32.u.map name="amp" value="46.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="1008" y="1176" text="sample triggered"/>
+   <obj type="timer/delayedpulse" uuid="3f05ee534ca67755fb20c7437f9e4de3d4c2f73d" name="delayedpulse_4" x="1008" y="1204">
+      <params>
+         <frac32.s.map name="delay" value="14.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/flipflop" uuid="f9b15363f5ee203152e062c08a8846f0074b0ea5" name="flipflop_5" x="1162" y="1204">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/kscope 128 b trig" uuid="b24afecdaf757006c3a4bb578f0aea1d7441153e" name="kscope_3" x="686" y="1246">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="1302" y="1414" text="record active"/>
+   <comment type="patch/comment" x="378" y="1442" text="teach reference"/>
+   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_2" x="1274" y="1442">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/out/led2" uuid="3d7a4c75d1f9901181a17ba5de752782de911803" name="led2_1" x="1386" y="1442">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="trigger" uuid="0000000000000000000000000000000000000004" name="trigger_4" x="378" y="1470">
+      <params>
+         <frac32.u.map name="thresh" value="11.5"/>
+         <frac32.u.map name="holdOff" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/record" uuid="2f8909f3691be093f0b8cf6532d4acff2dcb1a9f" name="record_2" x="798" y="1540">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="refkick"/>
+      </attribs>
+   </obj>
+   <obj type="table/alloc 16b" uuid="597fcaac36aa638ba120b0fbdcadcde4ad405a7e" name="refkick" x="966" y="1540">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="256"/>
+         <text attributeName="init">
+            <sText><![CDATA[array[0]=32767;]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_2" x="658" y="1596">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/flipflop" uuid="f9b15363f5ee203152e062c08a8846f0074b0ea5" name="flipflop_6" x="532" y="1610">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/button2" uuid="e844813dc6e022223cd10d8beb29b62732231867" name="button2_1" x="364" y="1624">
       <params/>
       <attribs/>
    </obj>
    <nets>
       <net>
-         <source obj="c_1" outlet="out"/>
-         <dest obj="play_1" inlet="filename"/>
-      </net>
-      <net>
-         <source obj="bp_1" outlet="out"/>
+         <source obj="gain_1" outlet="out"/>
+         <dest obj="trigger_2" inlet="in"/>
+         <dest obj="record_1" inlet="wave"/>
          <dest obj="xcorr_1" inlet="in"/>
-      </net>
-      <net>
-         <source obj="xcorr_1" outlet="out"/>
-         <dest obj="trigger_1" inlet="in"/>
+         <dest obj="mix_1" inlet="in1"/>
+         <dest obj="peakDetect_1" inlet="in"/>
       </net>
       <net>
          <source obj="mix_1" outlet="out"/>
          <dest obj="out_1" inlet="left"/>
-         <dest obj="out_1" inlet="right"/>
       </net>
       <net>
-         <source obj="play_1" outlet="out"/>
-         <dest obj="vca_1" inlet="a"/>
-      </net>
-      <net>
-         <source obj="vca_1" outlet="o"/>
-         <dest obj="mix_1" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="in_1" outlet="wave"/>
-         <dest obj="mix_1" inlet="in1"/>
-         <dest obj="bp_1" inlet="in"/>
-         <dest obj="trigger_2" inlet="in"/>
-         <dest obj="peakDetect_1" inlet="in"/>
-      </net>
-      <net>
-         <source obj="trigger_1" outlet="out"/>
-         <dest obj="play_1" inlet="start"/>
-         <dest obj="led2_1" inlet="in"/>
-         <dest obj="latch_1" inlet="trig"/>
+         <source obj="flipflop_3" outlet="o"/>
+         <dest obj="flipflop_2" inlet="set"/>
+         <dest obj="delayedpulse_1" inlet="trig"/>
+         <dest obj="play_2" inlet="start"/>
       </net>
       <net>
          <source obj="button1_1" outlet="out"/>
@@ -162,19 +316,149 @@
       <net>
          <source obj="flipflop_1" outlet="o"/>
          <dest obj="and_1" inlet="i2"/>
-         <dest obj="led1_1" inlet="in"/>
+         <dest obj="or_1" inlet="i2"/>
       </net>
       <net>
          <source obj="and_1" outlet="o"/>
          <dest obj="record_1" inlet="start"/>
       </net>
       <net>
-         <source obj="latch_1" outlet="o"/>
-         <dest obj="vca_1" inlet="v"/>
+         <source obj="peakDetect_1" outlet="out"/>
+         <dest obj="gain_2" inlet="in"/>
       </net>
       <net>
-         <source obj="peakDetect_1" outlet="out"/>
-         <dest obj="latch_1" inlet="i"/>
+         <source obj="delayedpulse_1" outlet="pulse"/>
+         <dest obj="flipflop_2" inlet="reset"/>
+      </net>
+      <net>
+         <source obj="flipflop_2" outlet="o"/>
+         <dest obj="ahd_1" inlet="gate"/>
+         <dest obj="or_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="trigger_1" outlet="out"/>
+         <dest obj="flipflop_3" inlet="set"/>
+         <dest obj="delayedpulse_2" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="delayedpulse_2" outlet="pulse"/>
+         <dest obj="flipflop_3" inlet="reset"/>
+      </net>
+      <net>
+         <source obj="bp_1" outlet="out"/>
+         <dest obj="trigger_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="in_1" outlet="wave"/>
+         <dest obj="gain_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="xcorr_1" outlet="out"/>
+         <dest obj="bp_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="play_2" outlet="out"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="mix_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="gain_2" outlet="out"/>
+         <dest obj="vca_1" inlet="v"/>
+         <dest obj="kscope_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="gain_3" outlet="out"/>
+         <dest obj="trigger_4" inlet="in"/>
+         <dest obj="record_2" inlet="wave"/>
+         <dest obj="xcorr_2" inlet="in"/>
+         <dest obj="mix_2" inlet="in1"/>
+         <dest obj="peakDetect_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="flipflop_4" outlet="o"/>
+         <dest obj="flipflop_5" inlet="set"/>
+         <dest obj="delayedpulse_4" inlet="trig"/>
+         <dest obj="play_3" inlet="start"/>
+      </net>
+      <net>
+         <source obj="trigger_4" outlet="out"/>
+         <dest obj="flipflop_6" inlet="reset"/>
+         <dest obj="and_2" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="flipflop_6" outlet="o"/>
+         <dest obj="and_2" inlet="i2"/>
+         <dest obj="or_2" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="and_2" outlet="o"/>
+         <dest obj="record_2" inlet="start"/>
+      </net>
+      <net>
+         <source obj="peakDetect_2" outlet="out"/>
+         <dest obj="gain_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="delayedpulse_4" outlet="pulse"/>
+         <dest obj="flipflop_5" inlet="reset"/>
+      </net>
+      <net>
+         <source obj="flipflop_5" outlet="o"/>
+         <dest obj="ahd_2" inlet="gate"/>
+         <dest obj="or_2" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="trigger_3" outlet="out"/>
+         <dest obj="flipflop_4" inlet="set"/>
+         <dest obj="delayedpulse_3" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="delayedpulse_3" outlet="pulse"/>
+         <dest obj="flipflop_4" inlet="reset"/>
+      </net>
+      <net>
+         <source obj="bp_2" outlet="out"/>
+         <dest obj="trigger_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="xcorr_2" outlet="out"/>
+         <dest obj="bp_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="play_3" outlet="out"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="mix_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="gain_4" outlet="out"/>
+         <dest obj="vca_2" inlet="v"/>
+         <dest obj="kscope_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="in_2" outlet="wave"/>
+         <dest obj="gain_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="button2_1" outlet="out"/>
+         <dest obj="flipflop_6" inlet="set"/>
+      </net>
+      <net>
+         <source obj="mix_2" outlet="out"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="or_1" outlet="o"/>
+         <dest obj="led1_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="or_2" outlet="o"/>
+         <dest obj="led2_1" inlet="in"/>
       </net>
    </nets>
    <settings>
@@ -187,9 +471,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>2872</x>
+      <x>-8</x>
       <y>-8</y>
-      <width>1936</width>
-      <height>1056</height>
+      <width>1696</width>
+      <height>1026</height>
    </windowPos>
 </patch-1.0>
