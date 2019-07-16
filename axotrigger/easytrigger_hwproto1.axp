@@ -123,7 +123,7 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="140" y="350">
       <params>
-         <frac32.u.map name="value" value="12.0"/>
+         <frac32.u.map name="value" value="5.5"/>
       </params>
       <attribs/>
    </obj>
@@ -182,33 +182,30 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="wave/play fn" uuid="25910f7130532e4934eed3cf2a934324790d0f00" name="play_4" x="1442" y="616">
+      <params/>
+      <attribs>
+         <file attributeName="fn" file="s1.raw"/>
+      </attribs>
+   </obj>
    <comment type="patch/comment" x="210" y="644" text="Snare IN"/>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_5" x="1316" y="658">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 3" uuid="8be16f2156012a4a8974804178cece51555f272b" name="mix_2" x="1680" y="658">
+      <params>
+         <frac32.u.map name="gain1" value="64.0"/>
+         <frac32.u.map name="gain2" value="64.0"/>
+         <frac32.u.map name="gain3" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_2" x="714" y="672">
       <params/>
       <attribs/>
    </obj>
    <obj type="logic/flipflop" uuid="f9b15363f5ee203152e062c08a8846f0074b0ea5" name="flipflop_3" x="980" y="672">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="wave/play fn" uuid="25910f7130532e4934eed3cf2a934324790d0f00" name="play_2" x="1106" y="672">
-      <params/>
-      <attribs>
-         <file attributeName="fn" file="sample3.raw"/>
-      </attribs>
-   </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1358" y="672">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 2" uuid="30c04239c88e09d3fa5c333b784ecf54f1b0e268" name="mix_1" x="1470" y="672">
-      <params>
-         <frac32.u.map name="gain1" value="27.0"/>
-         <frac32.u.map name="gain2" value="46.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1610" y="672">
       <params/>
       <attribs/>
    </obj>
@@ -250,11 +247,20 @@
       </params>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="1330" y="798" text="sample envelope curve"/>
-   <obj type="env/ahd" uuid="2139369d6de2ba5ddf76e602d1d25df653ca9eed" name="ahd_1" x="1330" y="826">
+   <obj type="wave/play fn" uuid="25910f7130532e4934eed3cf2a934324790d0f00" name="play_3" x="1442" y="728">
+      <params/>
+      <attribs>
+         <file attributeName="fn" file="s2.raw"/>
+      </attribs>
+   </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_4" x="1316" y="756">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2" uuid="30c04239c88e09d3fa5c333b784ecf54f1b0e268" name="mix_3" x="210" y="840">
       <params>
-         <frac32.s.map name="a" value="-20.0"/>
-         <frac32.s.map name="d" value="38.0"/>
+         <frac32.u.map name="gain1" value="32.0"/>
+         <frac32.u.map name="gain2" value="31.0"/>
       </params>
       <attribs/>
    </obj>
@@ -269,6 +275,43 @@
    <obj type="math/gain" uuid="62b1c1a6337c7c8f6aec96408a432477b113cfa0" name="gain_2" x="406" y="840">
       <params>
          <frac32.u.map name="amp" value="46.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="wave/play fn" uuid="25910f7130532e4934eed3cf2a934324790d0f00" name="play_2" x="1442" y="840">
+      <params/>
+      <attribs>
+         <file attributeName="fn" file="s3.raw"/>
+      </attribs>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1806" y="840">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2" uuid="30c04239c88e09d3fa5c333b784ecf54f1b0e268" name="mix_1" x="1918" y="840">
+      <params>
+         <frac32.u.map name="gain1" value="0.0"/>
+         <frac32.u.map name="gain2" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="2058" y="840">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_3" x="1316" y="854">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="pulse/dirac" uuid="6ffcf69f4d093d7df59fd18b36d443a8abf043f3" name="dirac_1" x="126" y="868">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="1778" y="966" text="sample envelope curve"/>
+   <obj type="env/ahd" uuid="2139369d6de2ba5ddf76e602d1d25df653ca9eed" name="ahd_1" x="1778" y="994">
+      <params>
+         <frac32.s.map name="a" value="-20.0"/>
+         <frac32.s.map name="d" value="38.0"/>
       </params>
       <attribs/>
    </obj>
@@ -347,8 +390,8 @@
          <dest obj="trigger_2" inlet="in"/>
          <dest obj="record_1" inlet="wave"/>
          <dest obj="xcorr_1" inlet="in"/>
-         <dest obj="peakDetect_1" inlet="in"/>
          <dest obj="mix_1" inlet="in1"/>
+         <dest obj="mix_3" inlet="in1"/>
       </net>
       <net>
          <source obj="mix_1" outlet="out"/>
@@ -358,7 +401,9 @@
          <source obj="flipflop_3" outlet="o"/>
          <dest obj="flipflop_2" inlet="set"/>
          <dest obj="delayedpulse_1" inlet="trig"/>
-         <dest obj="play_2" inlet="start"/>
+         <dest obj="and_3" inlet="i2"/>
+         <dest obj="and_4" inlet="i2"/>
+         <dest obj="and_5" inlet="i2"/>
       </net>
       <net>
          <source obj="trigger_2" outlet="out"/>
@@ -407,7 +452,7 @@
       </net>
       <net>
          <source obj="play_2" outlet="out"/>
-         <dest obj="vca_1" inlet="a"/>
+         <dest obj="mix_2" inlet="in3"/>
       </net>
       <net>
          <source obj="vca_1" outlet="o"/>
@@ -483,12 +528,13 @@
       <net>
          <source obj="digital_5" outlet="out"/>
          <dest obj="inv_4" inlet="i"/>
-         <dest obj="delayedpulsem_1" inlet="trig"/>
-         <dest obj="and_2" inlet="i1"/>
       </net>
       <net>
          <source obj="inv_4" outlet="o"/>
          <dest obj="or_2" inlet="i1"/>
+         <dest obj="and_2" inlet="i1"/>
+         <dest obj="delayedpulsem_1" inlet="trig"/>
+         <dest obj="dirac_1" inlet="trig"/>
       </net>
       <net>
          <source obj="digital_6" outlet="out"/>
@@ -531,14 +577,17 @@
       <net>
          <source obj="==_2" outlet="out"/>
          <dest obj="inv_8" inlet="i"/>
+         <dest obj="and_3" inlet="i1"/>
       </net>
       <net>
          <source obj="==_1" outlet="out"/>
          <dest obj="inv_7" inlet="i"/>
+         <dest obj="and_4" inlet="i1"/>
       </net>
       <net>
          <source obj="==_3" outlet="out"/>
          <dest obj="inv_6" inlet="i"/>
+         <dest obj="and_5" inlet="i1"/>
       </net>
       <net>
          <source obj="delayedpulse_6" outlet="pulse"/>
@@ -560,6 +609,38 @@
       <net>
          <source obj="delayedpulsem_1" outlet="pulse"/>
          <dest obj="and_2" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="and_3" outlet="o"/>
+         <dest obj="play_2" inlet="start"/>
+      </net>
+      <net>
+         <source obj="and_4" outlet="o"/>
+         <dest obj="play_3" inlet="start"/>
+      </net>
+      <net>
+         <source obj="and_5" outlet="o"/>
+         <dest obj="play_4" inlet="start"/>
+      </net>
+      <net>
+         <source obj="play_4" outlet="out"/>
+         <dest obj="mix_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="play_3" outlet="out"/>
+         <dest obj="mix_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="mix_2" outlet="out"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="mix_3" outlet="out"/>
+         <dest obj="peakDetect_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="dirac_1" outlet="out"/>
+         <dest obj="mix_3" inlet="in2"/>
       </net>
    </nets>
    <settings>
